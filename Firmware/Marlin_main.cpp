@@ -6263,29 +6263,30 @@ if((eSoundMode==e_SOUND_MODE_LOUD)||(eSoundMode==e_SOUND_MODE_ONCE))
        
        #else
      	
-      	#if defined(PHOTOGRAPH_PIN) && PHOTOGRAPH_PIN > -1
-		#if defined CANON_RC1
-		const uint8_t NUM_PULSES=16;
-		const float PULSE_LENGTH=0.01524;
-		for(int i=0; i < NUM_PULSES; i++) {
-			WRITE(PHOTOGRAPH_PIN, HIGH);
-			_delay_ms(PULSE_LENGTH);
-			WRITE(PHOTOGRAPH_PIN, LOW);
-			_delay_ms(PULSE_LENGTH);
-        }
-        delay(7.33);
-        for(int i=0; i < NUM_PULSES; i++) {
-			WRITE(PHOTOGRAPH_PIN, HIGH);
-			_delay_ms(PULSE_LENGTH);
-			WRITE(PHOTOGRAPH_PIN, LOW);
-			_delay_ms(PULSE_LENGTH);
-        }
-		#else
-		const float PULSE_LENGTH=250.0;
-		WRITE(PHOTOGRAPH_PIN, HIGH);
-		_delay_ms(PULSE_LENGTH);
-		WRITE(PHOTOGRAPH_PIN, LOW);
-		#endif
+      	 #if defined(PHOTOGRAPH_PIN) && PHOTOGRAPH_PIN > -1
+		        #if defined CANON_RC1
+          		const uint8_t NUM_PULSES=16;
+          		const float PULSE_LENGTH=0.01524;
+          		for(int i=0; i < NUM_PULSES; i++) {
+          			WRITE(PHOTOGRAPH_PIN, HIGH);
+          			_delay_ms(PULSE_LENGTH);
+          			WRITE(PHOTOGRAPH_PIN, LOW);
+          			_delay_ms(PULSE_LENGTH);
+                  }
+                  delay(7.33);
+                  for(int i=0; i < NUM_PULSES; i++) {
+          			WRITE(PHOTOGRAPH_PIN, HIGH);
+          			_delay_ms(PULSE_LENGTH);
+          			WRITE(PHOTOGRAPH_PIN, LOW);
+          			_delay_ms(PULSE_LENGTH);
+                  }
+          	#else
+          		const float PULSE_LENGTH=250.0;
+          		WRITE(PHOTOGRAPH_PIN, HIGH);
+          		_delay_ms(PULSE_LENGTH);
+          		WRITE(PHOTOGRAPH_PIN, LOW);
+            #endif  // CANON_RC1 end if
+         #endif // PHOTOGRAPH_PIN end if
       #endif //chdk end if
      }
     break;
