@@ -486,8 +486,10 @@ your extruder heater takes 2 minutes to hit the target on heating.
 #define SOFT_PWM_SCALE 0
 
 // M240  Triggers a camera by emulating a Canon RC-1 Remote
+//   or by sending a single shutter pulse
 // Data from: http://www.doc-diy.net/photo/rc-1_hacked/
 #define PHOTOGRAPH_PIN     76
+#undef  CANON_RC1
 
 // SF send wrong arc g-codes when using Arc Point as fillet procedure
 //#define SF_ARC_FIX
